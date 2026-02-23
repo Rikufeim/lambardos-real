@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import Header from "@/components/Header";
 import { ArrowRight, CheckCircle, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import kitchenImg from "@/assets/hero-kitchen.jpg";
@@ -29,7 +30,8 @@ const services = [
 
 const Services = () => (
   <>
-    <section className="section-dark py-20 md:py-28">
+    <section className="relative section-dark py-24 md:py-36 pt-36 md:pt-44">
+      <Header />
       <div className="container">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
           <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-4">Palvelut</p>
@@ -41,15 +43,15 @@ const Services = () => (
       </div>
     </section>
 
-    <section className="py-20 bg-background">
-      <div className="container space-y-20">
+    <section className="py-24 md:py-36 bg-background">
+      <div className="container space-y-28">
         {services.map((s, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className={`grid md:grid-cols-2 gap-10 items-center ${i % 2 === 1 ? "md:[direction:rtl]" : ""}`}
+            className={`grid md:grid-cols-2 gap-16 items-center ${i % 2 === 1 ? "md:[direction:rtl]" : ""}`}
           >
             <div className={i % 2 === 1 ? "md:[direction:ltr]" : ""}>
               <h2 className="text-2xl md:text-3xl font-black mb-4">{s.title}</h2>
@@ -72,7 +74,7 @@ const Services = () => (
     </section>
 
     {/* Trust */}
-    <section className="section-dark py-16">
+    <section className="section-dark py-24 md:py-32">
       <div className="container">
         <div className="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
           <ShieldCheck className="h-12 w-12 text-primary shrink-0" />

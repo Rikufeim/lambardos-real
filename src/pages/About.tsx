@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Award, Users, Target, Wrench } from "lucide-react";
+import Header from "@/components/Header";
 
 const values = [
   { icon: <Award className="h-8 w-8" />, title: "Laatu", desc: "Jokainen asennus tehdään ammattitaidolla ja huolella – emme tyydy keskinkertaiseen." },
@@ -11,7 +12,8 @@ const values = [
 const About = () => (
   <>
     {/* Hero */}
-    <section className="section-dark py-20 md:py-28">
+    <section className="relative section-dark py-24 md:py-36 pt-36 md:pt-44">
+      <Header />
       <div className="container">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
           <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-4">Yritys</p>
@@ -24,12 +26,12 @@ const About = () => (
     </section>
 
     {/* History */}
-    <section className="py-20 bg-background">
+    <section className="py-24 md:py-36 bg-background">
       <div className="container">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid md:grid-cols-2 gap-16 items-start">
           <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <h2 className="text-3xl font-black mb-6">Historiamme</h2>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className="space-y-5 text-muted-foreground leading-relaxed">
               <p>
                 Lambardos Oy:n tarina alkaa 1900-luvun alkupuolelta, jolloin puuseppä Juho Nurmi rakensi kalusteita käsityönä. Hänen ammattitaitonsa ja intohimonsa laatuun siirtyivät sukupolvelta toiselle.
               </p>
@@ -44,7 +46,7 @@ const About = () => (
 
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <h2 className="text-3xl font-black mb-6">Projektinhallinta</h2>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className="space-y-5 text-muted-foreground leading-relaxed">
               <p>
                 Käytämme Lähde Solutionsin projektinhallintajärjestelmää, joka mahdollistaa projektien tehokkaan seurannan, aikataulutuksen ja viestinnän.
               </p>
@@ -58,10 +60,10 @@ const About = () => (
     </section>
 
     {/* Values */}
-    <section className="section-dark py-20">
+    <section className="section-dark py-24 md:py-36">
       <div className="container">
-        <h2 className="text-3xl font-black text-center mb-12">Arvomme</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <h2 className="text-3xl font-black text-center mb-16">Arvomme</h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {values.map((v, i) => (
             <motion.div
               key={i}

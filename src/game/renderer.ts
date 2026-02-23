@@ -155,7 +155,7 @@ function drawBonus(ctx: CanvasRenderingContext2D, b: BonusItem, canvasH: number)
 
   ctx.shadowBlur = 0;
   ctx.fillStyle = WHITE;
-  ctx.font = `bold ${b.radius}px monospace`;
+  ctx.font = `800 ${Math.max(b.radius, 14)}px "Montserrat", sans-serif`;
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   const icons: Record<string, string> = { screw: '⚙', level: '⚖', plug: '⚡' };
@@ -193,7 +193,7 @@ function drawPlayer(ctx: CanvasRenderingContext2D, player: { x: number; y: numbe
 
   // Wrench icon
   ctx.fillStyle = WHITE;
-  ctx.font = 'bold 14px monospace';
+  ctx.font = 'bold 18px "Montserrat", sans-serif';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   ctx.fillText('🔧', 0, 1);
@@ -212,23 +212,23 @@ function drawHUD(ctx: CanvasRenderingContext2D, score: number, combo: number, mu
   // Score
   ctx.save();
   ctx.fillStyle = WHITE;
-  ctx.font = 'bold 24px Montserrat, sans-serif';
+  ctx.font = '800 28px "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif';
   ctx.textAlign = 'left';
-  ctx.fillText(`${score}`, 16, 36);
+  ctx.fillText(`${score}`, 20, 40);
 
   // Multiplier
   if (multiplier > 1) {
     ctx.fillStyle = PRIMARY;
-    ctx.font = 'bold 18px Montserrat, sans-serif';
-    ctx.fillText(`x${multiplier}`, 16, 60);
+    ctx.font = '800 20px "Montserrat", sans-serif';
+    ctx.fillText(`x${multiplier}`, 20, 66);
   }
 
   // Combo
   if (combo > 0) {
     ctx.fillStyle = PRIMARY;
-    ctx.font = 'bold 14px Montserrat, sans-serif';
+    ctx.font = '800 16px "Montserrat", sans-serif';
     ctx.textAlign = 'right';
-    ctx.fillText(`KOMBO ${combo}`, canvasW - 16, 30);
+    ctx.fillText(`KOMBO ${combo}`, canvasW - 20, 34);
   }
 
   // Center meter (small bar top-right)
@@ -254,11 +254,11 @@ export function renderStartScreen(ctx: CanvasRenderingContext2D, w: number, h: n
 
   // Title
   ctx.fillStyle = WHITE;
-  ctx.font = 'bold 28px Montserrat, sans-serif';
+  ctx.font = '800 32px "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif';
   ctx.textAlign = 'center';
   ctx.fillText('KALUSTEASENNUS', w / 2, h * 0.22);
   ctx.fillStyle = PRIMARY;
-  ctx.font = 'bold 36px Montserrat, sans-serif';
+  ctx.font = '800 42px "Montserrat", sans-serif';
   ctx.fillText('CHALLENGE', w / 2, h * 0.30);
 
   // Toolbox icon
@@ -267,22 +267,22 @@ export function renderStartScreen(ctx: CanvasRenderingContext2D, w: number, h: n
   ctx.fillStyle = BG_DARK;
   ctx.fillRect(w / 2 - 8, h * 0.36 - 4, 16, 6);
   ctx.fillStyle = WHITE;
-  ctx.font = '16px monospace';
+  ctx.font = '800 20px "Montserrat", sans-serif';
   ctx.fillText('🔧', w / 2, h * 0.36 + 18);
 
   // Best score
   if (bestScore > 0) {
     ctx.fillStyle = GRAY_LIGHT;
-    ctx.font = '14px Montserrat, sans-serif';
+    ctx.font = '600 16px "Montserrat", sans-serif';
     ctx.fillText(`PARAS: ${bestScore}`, w / 2, h * 0.48);
   }
 
   // Instructions
   ctx.fillStyle = WHITE;
-  ctx.font = '13px Montserrat, sans-serif';
+  ctx.font = '600 15px "Montserrat", sans-serif';
   ctx.fillText('SPACE / KLIKKAA / NAPAUTA = NOSTO', w / 2, h * 0.72);
   ctx.fillStyle = GRAY_LIGHT;
-  ctx.font = '11px Montserrat, sans-serif';
+  ctx.font = '500 13px "Montserrat", sans-serif';
   ctx.fillText('Ohjaa työkalupakki kaappiaukkojen läpi', w / 2, h * 0.78);
   ctx.fillText('Pysy keskellä kombo-bonukselle!', w / 2, h * 0.83);
 }
@@ -300,16 +300,16 @@ export function renderGameOver(
   ctx.fillRect(0, 0, w, h);
 
   ctx.fillStyle = WHITE;
-  ctx.font = 'bold 28px Montserrat, sans-serif';
+  ctx.font = '800 32px "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif';
   ctx.textAlign = 'center';
   ctx.fillText('PELI OHI!', w / 2, h * 0.28);
 
   ctx.fillStyle = PRIMARY;
-  ctx.font = 'bold 48px Montserrat, sans-serif';
+  ctx.font = '800 56px "Montserrat", sans-serif';
   ctx.fillText(`${score}`, w / 2, h * 0.40);
 
   ctx.fillStyle = GRAY_LIGHT;
-  ctx.font = '14px Montserrat, sans-serif';
+  ctx.font = '600 16px "Montserrat", sans-serif';
   ctx.fillText(`PARAS: ${bestScore}`, w / 2, h * 0.48);
   if (maxCombo > 1) {
     ctx.fillText(`MAX KOMBO: ${maxCombo}`, w / 2, h * 0.53);
@@ -317,19 +317,19 @@ export function renderGameOver(
 
   // Retry button area
   ctx.fillStyle = PRIMARY;
-  const btnW = 220;
-  const btnH = 48;
+  const btnW = 240;
+  const btnH = 52;
   const btnX = w / 2 - btnW / 2;
   const btnY = h * 0.62;
   ctx.beginPath();
-  ctx.roundRect(btnX, btnY, btnW, btnH, 8);
+  ctx.roundRect(btnX, btnY, btnW, btnH, 10);
   ctx.fill();
   ctx.fillStyle = WHITE;
-  ctx.font = 'bold 16px Montserrat, sans-serif';
+  ctx.font = '800 18px "Montserrat", sans-serif';
   ctx.fillText('PELAA UUDELLEEN', w / 2, btnY + btnH / 2 + 5);
 
   // Daily challenge
   ctx.fillStyle = GRAY_LIGHT;
-  ctx.font = '12px Montserrat, sans-serif';
+  ctx.font = '500 14px "Montserrat", sans-serif';
   ctx.fillText('tai napauta PÄIVÄN HAASTE', w / 2, h * 0.82);
 }

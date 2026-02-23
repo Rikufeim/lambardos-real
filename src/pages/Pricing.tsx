@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -18,7 +19,8 @@ const Pricing = () => {
 
   return (
     <>
-      <section className="section-dark py-20 md:py-28">
+      <section className="relative section-dark py-24 md:py-36 pt-36 md:pt-44">
+        <Header />
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
             <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-4">Hinnoittelu</p>
@@ -30,14 +32,14 @@ const Pricing = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-background">
+      <section className="py-24 md:py-36 bg-background">
         <div className="container">
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-16">
             {/* Info */}
             <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <h2 className="text-2xl font-black mb-6">Hinnoitteluperiaatteet</h2>
 
-              <div className="space-y-6">
+              <div className="space-y-8">
                 <div className="p-6 border border-border rounded-lg">
                   <h3 className="font-bold text-lg mb-2">Urakkahinnoittelu</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-3">

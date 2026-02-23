@@ -1,25 +1,20 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Instagram, Facebook } from "lucide-react";
 import logo from "@/assets/lambardos-logo.png";
-import aaaLogo from "@/assets/aaa-logo.png";
-import svLogo from "@/assets/suomen-vahvimmat.jpg";
-import tilaajavastuu from "@/assets/luotettava-kumppani.png";
+
+const INSTAGRAM_URL = "https://www.instagram.com/rkl_lambardosofficial/";
+const FACEBOOK_URL = "https://www.facebook.com/";
 
 const Footer = () => (
-  <footer className="section-dark border-t border-border/10">
-    <div className="container py-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-        {/* Brand */}
+  <footer className="section-dark border-t border-white/10">
+    <div className="container py-16 md:py-24">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
         <div>
-          <img src={logo} alt="Lambardos Oy" className="h-12 mb-4" />
-          <p className="text-sm text-section-dark-foreground/70 leading-relaxed">
-            Kiintokalusteasennusten ammattilainen Nurmijärveltä. Perinteitä vuodesta 1900-luvun alkupuolelta.
-          </p>
+          <img src={logo} alt="Lambardos Oy" className="h-10 mb-4 opacity-90" />
+          <p className="text-xs text-section-dark-foreground/50">Rakennusliike Lambardos Oy</p>
         </div>
-
-        {/* Links */}
         <div>
-          <h4 className="text-sm font-semibold mb-4 text-primary">Sivukartta</h4>
+          <h4 className="text-sm font-semibold mb-4 text-primary">Sivut</h4>
           <ul className="space-y-2">
             {[
               { label: "Etusivu", path: "/" },
@@ -36,38 +31,24 @@ const Footer = () => (
             ))}
           </ul>
         </div>
-
-        {/* Contact */}
         <div>
           <h4 className="text-sm font-semibold mb-4 text-primary">Yhteystiedot</h4>
-          <ul className="space-y-3 text-sm text-section-dark-foreground/70">
-            <li className="flex items-start gap-2">
-              <MapPin className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-              Mäensyrjä 10, 01900 Nurmijärvi
-            </li>
-            <li className="flex items-center gap-2">
-              <Phone className="h-4 w-4 text-primary shrink-0" />
-              040 123 4567
-            </li>
-            <li className="flex items-center gap-2">
-              <Mail className="h-4 w-4 text-primary shrink-0" />
-              info@lambardos.fi
-            </li>
-          </ul>
-        </div>
-
-        {/* Trust badges */}
-        <div>
-          <h4 className="text-sm font-semibold mb-4 text-primary">Luotettava kumppani</h4>
-          <div className="flex flex-wrap gap-3 items-center">
-            <img src={aaaLogo} alt="AAA Korkein luottoluokitus" className="h-14 bg-background rounded p-1" />
-            <img src={svLogo} alt="Suomen Vahvimmat 2018" className="h-14 rounded" />
-            <img src={tilaajavastuu} alt="Tilaajavastuu.fi Luotettava Kumppani" className="h-12 bg-background rounded p-1" />
+          <p className="text-sm text-section-dark-foreground/70">
+            <a href="mailto:info@lambardos.fi" className="hover:text-primary transition-colors">info@lambardos.fi</a>
+          </p>
+          <p className="text-sm text-section-dark-foreground/70 mt-1">040 123 4567</p>
+          <div className="flex gap-4 mt-4">
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-section-dark-foreground/50 hover:text-primary transition-colors" aria-label="Instagram">
+              <Instagram className="h-5 w-5" />
+            </a>
+            <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="text-section-dark-foreground/50 hover:text-primary transition-colors" aria-label="Facebook">
+              <Facebook className="h-5 w-5" />
+            </a>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-border/10 mt-12 pt-6 text-center text-xs text-section-dark-foreground/50">
+      <div className="border-t border-white/10 mt-12 pt-8 text-center text-xs text-section-dark-foreground/50">
         © {new Date().getFullYear()} Rakennusliike Lambardos Oy. Kaikki oikeudet pidätetään.
       </div>
     </div>
