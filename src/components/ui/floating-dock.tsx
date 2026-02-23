@@ -42,7 +42,7 @@ export function FloatingDock({
         onMouseMove={(e) => mouseX.set(e.pageX)}
         onMouseLeave={() => mouseX.set(Infinity)}
         className={cn(
-          "fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex h-14 items-end gap-2 rounded-2xl border border-border/50 bg-background/80 backdrop-blur-xl px-4 pb-2 shadow-lg",
+          "fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex h-14 items-end gap-2 rounded-2xl border border-white/10 bg-section-dark/80 backdrop-blur-xl px-4 pb-2 shadow-lg",
           "lg:flex hidden",
           mobileClassName,
           className
@@ -87,9 +87,9 @@ function DockItem({
           width: widthTransformSpring,
           height: 40,
         }}
-        className="flex size-10 shrink-0 cursor-pointer items-center justify-center rounded-xl bg-muted/50 transition-colors hover:bg-muted"
+        className="flex size-10 shrink-0 cursor-pointer items-center justify-center rounded-xl bg-section-dark-foreground/10 transition-colors hover:bg-section-dark-foreground/20"
       >
-        <span className="flex size-6 items-center justify-center text-muted-foreground [&>svg]:size-5">
+        <span className="flex size-6 items-center justify-center text-section-dark-foreground [&>svg]:size-5">
           {item.icon}
         </span>
       </motion.div>

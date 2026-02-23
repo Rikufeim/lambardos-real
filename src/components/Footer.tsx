@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { Instagram, Facebook } from "lucide-react";
 import logo from "@/assets/lambardos-logo.png";
+import aaaLogo from "@/assets/aaa-logo.png";
+import svLogo from "@/assets/suomen-vahvimmat.jpg";
+import tilaajavastuu from "@/assets/luotettava-kumppani.png";
 
 const INSTAGRAM_URL = "https://www.instagram.com/rkl_lambardosofficial/";
 const FACEBOOK_URL = "https://www.facebook.com/";
@@ -48,7 +51,13 @@ const Footer = () => (
         </div>
       </div>
 
-      <div className="border-t border-white/10 mt-12 pt-8 text-center text-xs text-section-dark-foreground/50">
+      <div className="border-t border-white/10 mt-12 pt-8 flex flex-wrap gap-8 md:gap-12 justify-center items-center">
+        <img src={aaaLogo} alt="AAA" className="h-10 md:h-12 object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
+        <img src={svLogo} alt="Suomen Vahvimmat" className="h-10 md:h-12 object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
+        <img src={tilaajavastuu} alt="Tilaajavastuu Luotettava Kumppani" className="h-10 md:h-12 object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
+      </div>
+
+      <div className="border-t border-white/10 mt-8 pt-8 text-center text-xs text-section-dark-foreground/50">
         © {new Date().getFullYear()} Rakennusliike Lambardos Oy. Kaikki oikeudet pidätetään.
       </div>
     </div>

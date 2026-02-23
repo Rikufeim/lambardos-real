@@ -45,13 +45,16 @@ const Services = () => (
 
     <section className="py-24 md:py-36 bg-background">
       <div className="container space-y-28">
-        {services.map((s, i) => (
+        {services.map((s, i) => {
+          const sectionIds = ["keittiot", "kylpyhuoneet", "kaapistot"];
+          return (
           <motion.div
             key={i}
+            id={sectionIds[i]}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className={`grid md:grid-cols-2 gap-16 items-center ${i % 2 === 1 ? "md:[direction:rtl]" : ""}`}
+            className={`grid md:grid-cols-2 gap-16 items-center scroll-mt-24 ${i % 2 === 1 ? "md:[direction:rtl]" : ""}`}
           >
             <div className={i % 2 === 1 ? "md:[direction:ltr]" : ""}>
               <h2 className="text-2xl md:text-3xl font-black mb-4">{s.title}</h2>
@@ -69,7 +72,8 @@ const Services = () => (
               <img src={s.img} alt={s.title} className="w-full h-72 object-cover" />
             </div>
           </motion.div>
-        ))}
+          );
+        })}
       </div>
     </section>
 
