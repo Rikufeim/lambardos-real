@@ -1,6 +1,5 @@
 import type { GameState, Obstacle, BonusItem, Particle } from './types';
 import { createSeededRandom, getDailySeed } from './seededRandom';
-import { gameAudio } from './audio';
 
 const PLAYER_W = 36;
 const PLAYER_H = 28;
@@ -58,7 +57,6 @@ export function startGame(state: GameState, daily = false): GameState {
 
 export function flap(state: GameState): GameState {
   if (state.status !== 'playing') return state;
-  gameAudio.flap();
   return {
     ...state,
     player: { ...state.player, velocity: state.flapForce },
@@ -170,7 +168,6 @@ export function tick(state: GameState, canvasW: number, canvasH: number): GameSt
         s.combo++;
         s.maxCombo = Math.max(s.maxCombo, s.combo);
         s.multiplier = Math.min(5, 1 + Math.floor(s.combo / 2));
-        gameAudio.combo(s.multiplier);
         // Particles
         s.particles = [
           ...s.particles,
@@ -179,7 +176,6 @@ export function tick(state: GameState, canvasW: number, canvasH: number): GameSt
       } else {
         s.combo = 0;
         s.multiplier = 1;
-        gameAudio.score();
       }
 
       s.score += s.multiplier;
@@ -194,7 +190,6 @@ export function tick(state: GameState, canvasW: number, canvasH: number): GameSt
     const dy = (s.player.y + s.player.height / 2) - b.y;
     if (Math.sqrt(dx * dx + dy * dy) < b.radius + 16) {
       s.bonuses = s.bonuses.map((bb, j) => (j === i ? { ...bb, collected: true } : bb));
-      gameAudio.bonus();
       if (b.type === 'level') {
         s.stabilized = 120; // 2 seconds at 60fps
       } else {
@@ -242,7 +237,6 @@ export function tick(state: GameState, canvasW: number, canvasH: number): GameSt
 }
 
 function gameOver(state: GameState): GameState {
-  gameAudio.hit();
   const best = Math.max(state.bestScore, state.score);
   localStorage.setItem('lambardos_best', best.toString());
 

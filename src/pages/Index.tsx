@@ -3,7 +3,6 @@ import { ArrowRight, Hammer, Home, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
-import { HeroStatsCard } from "@/components/HeroStatsCard";
 import { GameEmbed } from "@/components/GameEmbed";
 import InstagramFeed from "@/components/InstagramFeed";
 import heroImg from "@/assets/hero-kitchen.jpg";
@@ -69,7 +68,7 @@ const Index = () => {
           <div className="absolute inset-0 bg-[#0a0a0a]/60" />
         </div>
         <div className="container relative z-10 py-24 pt-28 md:py-32 md:pt-40">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-16 lg:gap-20">
+          <div className="flex flex-col lg:flex-row lg:items-center">
             <motion.div
               initial="hidden"
               animate="visible"
@@ -95,7 +94,6 @@ const Index = () => {
                 </Button>
               </motion.div>
             </motion.div>
-            <HeroStatsCard />
           </div>
         </div>
       </section>
